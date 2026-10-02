@@ -132,3 +132,14 @@ Aggregate: {problem_brief}
 Evidence excerpts: {evidence_examples}
 """
     return _parse_json(_generate(prompt,TICKET_SCHEMA))
+
+
+def connection_check() -> tuple[bool, str]:
+    """Perform one explicit live model call. Never runs automatically."""
+    if not available():
+        return False, "API key is not configured"
+    try:
+        reply = _generate("Reply with exactly: CONNECTED")
+        return ("CONNECTED" in reply.upper()), reply[:120]
+    except Exception as exc:
+        return False, f"{type(exc).__name__}: {exc}"
