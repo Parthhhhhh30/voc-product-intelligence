@@ -4,7 +4,7 @@ import html
 
 import streamlit as st
 
-from ai_layer import analyze_feedback, available as ai_available, draft_product_ticket
+from ai_layer import analyze_feedback, available as ai_available, connection_check, draft_product_ticket
 from analysis_engine import (
     aggregate_themes,
     build_problem_brief,
@@ -144,7 +144,7 @@ def sidebar_nav() -> str:
             unsafe_allow_html=True,
         )
         st.markdown(
-            f'<div class="sidebar-small" style="margin-top:1rem">AI: {"connected" if ai_available() else "local demo mode"}</div>',
+            f'<div class="sidebar-small" style="margin-top:1rem">AI: {"key configured" if ai_available() else "local demo mode"}</div>',
             unsafe_allow_html=True,
         )
     return page
@@ -156,7 +156,7 @@ def render_hero() -> None:
         <div class="eyebrow">Voice of customer / product intelligence</div>
         <div class="hero-title">Research the problem<br>before designing the answer.</div>
         <div class="hero-copy">A working research studio for reviewing customer conversations, finding recurring friction, tracing every theme back to source evidence, and drafting problem briefs that stop before feature selection.</div>
-        </div><div class="hero-status">Independent portfolio prototype<br>{"Live Gemini extraction available" if ai_available() else "Deterministic demo mode"}<br>Human review required</div></div></div>''',
+        </div><div class="hero-status">Independent portfolio prototype<br>{"Gemini key configured" if ai_available() else "Deterministic demo mode"}<br>Human review required</div></div></div>''',
         unsafe_allow_html=True,
     )
     summary = aggregate_themes(reviewed_data(), total_conversations=30)
@@ -441,6 +441,16 @@ def render_operating_contract() -> None:
         '<div class="paper"><div class="paper-meta">DATA BOUNDARY</div><div class="paper-id">Synthetic B2B research set only</div><div>No patient names, NHS numbers, dates of birth, diagnoses, medications, clinical decisions, real Healthtech-1 calls or real customer backlog data are used.</div></div>',
         unsafe_allow_html=True,
     )
+
+    st.markdown("### Live drafting health")
+    st.caption("The label in the sidebar only confirms that a key exists. This button performs one real Gemini request.")
+    if st.button("Run live AI connection check", key="ai-health-check"):
+        ok, message = connection_check()
+        if ok:
+            st.success("Live Gemini request succeeded.")
+        else:
+            st.error("Live Gemini request failed: " + message)
+
 
 
 def render_app() -> None:
