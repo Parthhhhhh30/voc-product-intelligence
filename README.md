@@ -63,3 +63,7 @@ PYTHONPATH=. python scripts/verify_streamlit_session.py
 ## Portfolio boundaries
 
 This is an independent prototype. It does not use Healthtech-1 internal data, patient data, real customer calls or a real product backlog. The synthetic examples are designed to demonstrate the operating method rather than claim actual product findings.
+
+## CI
+
+GitHub Actions runs unit tests, compile checks, a full Streamlit session test and a headless health smoke test on every push.
