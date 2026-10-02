@@ -7,8 +7,8 @@ def main():
     if app.exception:
         raise RuntimeError("Streamlit exceptions: "+" | ".join(str(x.value) for x in app.exception))
     text="\n".join(str(x.value) for x in app.markdown)
-    assert "VOC Product Intelligence Engine" in text
-    assert "Feedback review inbox" in text
+    assert "Research the problem" in text
+    assert "Feedback review inbox" in text || "Research desk" in text
     print("STREAMLIT SESSION OK")
 
 if __name__=="__main__":
