@@ -216,7 +216,7 @@ def render_research_desk() -> None:
         )
         st.caption(f"{len(view)} notes in this view")
         compact = view[["feedback_id", "channel", "workflow_stage"]].head(12)
-        st.dataframe(compact, hide_index=True, use_container_width=True, height=330)
+        st.dataframe(compact, hide_index=True, width="stretch", height=330)
 
     row = feedback[feedback.feedback_id == feedback_id].iloc[0]
     current = reviewed[reviewed.feedback_id == feedback_id].iloc[0]
@@ -234,7 +234,7 @@ def render_research_desk() -> None:
 
     with analysis:
         st.markdown('<div class="desk-title">ANALYSIS DESK</div>', unsafe_allow_html=True)
-        if st.button("Analyse this note", type="primary", use_container_width=True, key="analyse-note"):
+        if st.button("Analyse this note", type="primary", width="stretch", key="analyse-note"):
             try:
                 st.session_state.ai_candidates[feedback_id] = analyze_feedback(
                     row.text, row.channel, row.workflow_stage
@@ -261,7 +261,7 @@ def render_research_desk() -> None:
             )
             reason = st.text_area("Why this impact?", value=str(base["impact_reason"]), height=70)
             evidence = st.text_area("Evidence excerpt", value=str(base["evidence"]), height=82)
-            if st.form_submit_button("Approve interpretation", type="primary", use_container_width=True):
+            if st.form_submit_button("Approve interpretation", type="primary", width="stretch"):
                 st.session_state.overrides[feedback_id] = {
                     "problem": problem,
                     "theme": theme,
@@ -344,9 +344,9 @@ def render_evidence_ledger() -> None:
             )
     with right:
         st.markdown("#### Journey distribution")
-        st.dataframe(stage_distribution(reviewed, theme), hide_index=True, use_container_width=True)
+        st.dataframe(stage_distribution(reviewed, theme), hide_index=True, width="stretch")
         st.markdown("#### Channel distribution")
-        st.dataframe(channel_distribution(reviewed, theme), hide_index=True, use_container_width=True)
+        st.dataframe(channel_distribution(reviewed, theme), hide_index=True, width="stretch")
         st.markdown(
             '<div class="callout"><strong>Validation questions</strong><br>Is this the same underlying problem across accounts?<br>What workflow causes it?<br>Does it appear outside this sample?<br>What evidence would disconfirm the interpretation?</div>',
             unsafe_allow_html=True,
@@ -378,7 +378,7 @@ def render_problem_memo() -> None:
             </div>''',
             unsafe_allow_html=True,
         )
-        if st.button("Draft structured product ticket", type="primary", use_container_width=True, key="memo-draft"):
+        if st.button("Draft structured product ticket", type="primary", width="stretch", key="memo-draft"):
             try:
                 st.session_state.tickets[theme] = draft_product_ticket(
                     brief, evidence.evidence.astype(str).head(5).tolist()
