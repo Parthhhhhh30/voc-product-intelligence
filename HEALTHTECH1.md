@@ -15,12 +15,12 @@ This is an independent portfolio project built to demonstrate the customer-insig
 
 ## 90-second demo path
 
-1. Open **Inbox** and read the original feedback before looking at the extraction.
+1. Open **Research desk** and read the original feedback before looking at the extraction.
 2. Run **live AI extraction** on one item and show that the model must use a controlled taxonomy.
 3. Edit/approve the candidate to demonstrate human ownership.
-4. Open **Theme board** to show the recurring patterns and transparent frequency/impact logic.
-5. Open **Evidence** and inspect every conversation supporting one theme.
-6. Open **Problem briefs** and draft a ticket that states the problem, evidence, impact, uncertainty and validation step — but deliberately does not propose a feature.
+4. Open **Signal atlas** to show the recurring patterns and transparent frequency/impact logic.
+5. Open **Evidence ledger** and inspect every conversation supporting one theme.
+6. Open **Problem memo** and draft a ticket that states the problem, evidence, impact, uncertainty and validation step — but deliberately does not propose a feature.
 
 ## Safe claims
 
