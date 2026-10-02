@@ -21,11 +21,17 @@ The target Special Projects workflow requires customer insight, onboarding/suppo
 
 ## Workspace
 
-- **Inbox** — source feedback, live AI extraction, editable human review and session approval
-- **Theme board** — transparent recurring-theme aggregation and attention bands
-- **Evidence** — supporting excerpts plus channel/stage distributions
-- **Problem briefs** — evidence-led product/operations tickets with no feature-recommendation field
-- **Method** — AI/deterministic/human boundaries and data safeguards
+The interface is intentionally designed as a **product-research studio**, not as another operations dashboard.
+
+- **Research desk** — source conversation reading + live AI candidate extraction + human approval
+- **Signal atlas** — recurring patterns visualised as evidence frequency, with impact shown separately
+- **Evidence ledger** — an auditable source trail for every recurring theme
+- **Problem memo** — editorial-style problem brief and structured Product/Operations handoff
+- **Operating contract** — explicit AI / deterministic / human decision boundaries
+
+## Portfolio UI non-reuse rule
+
+Every portfolio project must have its own visual system and interaction grammar. Reusing the same navigation, card hierarchy, dashboard composition, colour system or page structure across projects is treated as a design defect, even when the underlying technology stack is the same.
 
 ## Decision boundary
 
