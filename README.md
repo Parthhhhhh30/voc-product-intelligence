@@ -2,6 +2,8 @@
 
 Independent portfolio prototype for a B2B healthtech product-operations workflow.
 
+**Live app:** https://voc-h-intelligence.streamlit.app/
+
 The engine turns customer evidence into reviewable product intelligence without allowing an LLM to jump directly from a complaint to a feature recommendation:
 
 **customer feedback → AI candidate extraction → human review → deterministic theme aggregation → frequency + impact evidence → problem brief → AI ticket draft → human validation → solution discovery later**
@@ -17,7 +19,7 @@ The target Special Projects workflow requires customer insight, onboarding/suppo
 - no patient-level, clinical or real customer information
 - six recurring operational/product themes
 - fixed reviewed demo annotations make aggregation reproducible
-- live Gemini analysis can re-analyse an individual conversation once a key is configured
+- live Gemini analysis can re-analyse an individual conversation once a key is configured; the app also includes an explicit one-click live connection check
 
 ## Workspace
 
