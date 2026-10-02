@@ -42,3 +42,12 @@ Do not say the project:
 - proves a feature should be built;
 - autonomously prioritises Product/Engineering work;
 - automatically writes to a real ticketing system.
+
+## Live demo verification
+
+As of 2 October 2026, the deployed app has been manually verified for both live Gemini paths:
+
+- **Research desk → Analyse this note** returns a structured extraction against the controlled taxonomy.
+- **Problem memo → Draft structured product ticket** returns a reviewable evidence-led ticket without a feature recommendation field.
+
+Automated CI also passes the unit-test suite, Python compile check, full Streamlit session test and headless runtime health check.
