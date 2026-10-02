@@ -23,3 +23,12 @@ Do not commit the key to GitHub. `.streamlit/secrets.toml` and `.env` are ignore
 5. Open **Evidence ledger** and confirm supporting conversations are visible.
 6. Open **Problem memo**, draft a ticket, and confirm there is no recommended-feature field.
 7. Confirm the footer states that the build is an independent portfolio prototype with no automated external actions.
+
+## Verified deployment state
+
+On 2 October 2026, the deployed app was manually checked with the configured Gemini secret. Both live AI workflows succeeded:
+
+1. feedback extraction from **Research desk**
+2. structured problem-ticket drafting from **Problem memo**
+
+The latest automated workflow also passed all tests, compile checks, Streamlit session checks and the runtime health smoke test.
