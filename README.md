@@ -75,3 +75,16 @@ This is an independent prototype. It does not use Healthtech-1 internal data, pa
 ## CI
 
 GitHub Actions runs unit tests, compile checks, a full Streamlit session test and a headless health smoke test on every push.
+
+## Live verification status
+
+Verified on 2 October 2026 against the deployed Streamlit app:
+
+- live Gemini feedback analysis succeeds from **Research desk**
+- live Gemini structured problem-ticket drafting succeeds from **Problem memo**
+- compatibility fallback is exercised only when a structured-output envelope is rejected
+- returned extractions are still validated locally against the controlled taxonomy
+- product-ticket output is rejected if it crosses the problem-before-solution boundary
+- latest GitHub Actions run passes tests, compile, full Streamlit session and runtime health checks
+
+The live app remains: https://voc-h-intelligence.streamlit.app/
