@@ -1,0 +1,32 @@
+name: tests
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: .
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: pytest -q
+      - run: python -m py_compile app.py workspace.py analysis_engine.py synthetic.py taxonomy.py ai_layer.py scripts/verify_streamlit_session.py
+      - run: python scripts/verify_streamlit_session.py
+      - name: Streamlit health smoke
+        run: |
+          python -m streamlit run app.py --server.headless true --server.port 8501 > /tmp/streamlit.log 2>&1 &
+          pid=$!
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:8501/_stcore/health; then
+              kill "$pid" || true
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/streamlit.log
+          kill "$pid" || true
+          exit 1
